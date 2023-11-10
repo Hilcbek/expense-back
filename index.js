@@ -12,7 +12,9 @@ app.use(morgan('common'))
 app.use(cookieParser())
 app.use(express.json())
 
-app.use(cors({origin: 'https://expense-tracker-mern-app.netlify.app', credentials : true}));
+app.use(
+  cors({ origin: "https://expense-front-jade.vercel.app", credentials: true })
+);
 let PORT = process.env.PORT || 6000
 let MONGOOSE_URL = process.env.MONGOOSE_URL
 mongoose.connect(MONGOOSE_URL).then((connection) => app.listen(PORT, () => console.log('Connected to mongodb'))).catch((err) => console.error(err));
